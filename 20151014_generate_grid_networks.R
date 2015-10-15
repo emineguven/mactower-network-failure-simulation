@@ -6,7 +6,8 @@ rm(list=ls())
 debug = 0; 
 
 # R -f file --args Degree numOfEssenNode outNetworkFile outEssenLookupTbFile 
-# R -f 20151013-net-sim-ginppi.R --args 4 1000 _Degree4N1000_network.csv _Degree4N100_EssenLookupTb.csv
+# R -f 20151014_generate_grid_networks.R --args 4 1000 _Degree4N1000_network.csv _Degree4N100_EssenLookupTb.csv
+
 options(echo=TRUE) # if you want see commands in output file
 args <- commandArgs(trailingOnly = TRUE)
 print(args)
