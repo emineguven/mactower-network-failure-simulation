@@ -1,30 +1,24 @@
+#2015Oct13, use numeric lookup table for essential genes.
 #2014March3, redo ginppi simulation witht same parameter for ms02networks. 
-
 # 2014 Feb 17, change name "20131221.DIPandGIN.sim.aging_v2.R" to "net-aging-sim-2014Feb17.R"
-
 # 2013 Dec 20, merge DIP PPI and Genetic Inxt Net -> Multi-net approach
 rm(list=ls())
 
 require('flexsurv')
-#source("/Users/hongqin/lib/R/lifespan.r")
 source("lifespan.r")
 source("network.r")
 
-#setwd("~/projects/0.network.aging.prj/0.ppi.reliability.simulation")
 list.files(path='data', )
-#setwd("~/projects/0.ginppi.reliability.simulation/ms02GINPPI")
-
 debug = 0; 
 
 #essential gene info
-essenTb = read.csv('SummaryRegressionHetHom2013Oct29.csv', colClasses=rep('character', 9))
+essenTb = read.csv("SummaryRegressionHetHomFactorized2015Oct13.csv", colClasses=rep('character', 9))
 
-#for( i in 3:100 ){ 
-#  path = paste('dipgin.ms02.output/', i, sep='')
-#  ms02file = paste('ms02_', i, ".tab", sep='')
-#  infile = paste( path, '/', ms02file, sep=""); print(infile)
-  infile = "data/merged_PPIGIN_2014Jan20.tab";
-  pairs = read.table( infile,  header=F, sep="\t", colClass = c("character", "character") )
+  #infile = "data/merged_PPIGIN_2014Jan20.tab";
+  #pairs = read.table( infile,  header=F, sep="\t", colClass = c("character", "character") )
+infile = "data/merged_PPIGIN_Factorized2015Oct13.csv"
+pairs = read.csv(infile)
+
   names(pairs) = c("id1",'id2')
   print(head(pairs))
   if(debug==9) {     pairs = pairs[1:1000,]  }
