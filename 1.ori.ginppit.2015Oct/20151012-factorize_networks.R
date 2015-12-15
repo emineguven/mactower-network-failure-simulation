@@ -41,7 +41,7 @@ length(unique(essenTb$orf)) #5772,
   names(mergedNOs) = mergedORFs   # This is the numbers assigned to ORFs/Nodes !!!
   mergedNOs[c('YAL016W', "YPR116W")] #check, passed 20151012Mon
   essenTb$geneNO = mergedNOs[essenTb$orf]
-  essenTb$essenflagNumeric = ifelse( essenTb$essenflag=='essential', 1, 0)
+  essenTb$essenflagNumeric = ifelse( essenTb$essenflag=='essential', 1, 0)  #zero is false, everything else is true
   rownames(essenTb) = essenTb$orf
   head(essenTb)
   
@@ -64,5 +64,5 @@ length(unique(essenTb$orf)) #5772,
   ##output
   write.csv(essenTb,"data/SummaryRegressionHetHomFactorized2015Oct13.csv", row.names = F)
   write.csv(pairs, "data/merged_PPIGIN_Factorized2015Oct13.csv", row.names=F)
-  write.csv(essenLookupTb, "data/essntialGeneLookupTable_20151013.csv")
+  write.csv(essenLookupTb, "data/essntialGeneLookupTable_20151013.csv", row.names=T)
   

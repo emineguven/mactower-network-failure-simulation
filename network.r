@@ -1,12 +1,58 @@
 #2014 April 9, Hong Qin hqin@spelman.edu
 
+#todo current simulation does not consider essen-essen interaction
+
+#2015 Fall
+single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p, pairs, essenLookupTb ) {
+  # single network failure simulation, 20151013Tue
+  # lambda1: First exponential constant failure rate for edges with degree > threshold
+  # lambda2: Second exponential constant failure rate for edges with degree <= threshold
+  # threshold: degree threshold for lambda1 and lambda2
+  # pairs: network in pairwide format, using numeric NOs 20151013
+  # essenLookupTb: lookup table for essential and nonessential genes, numeric values 
+  ## for debug:   lambda1 = 1/50; lambda2= lambda1/10; threshold=4; p=0.8
+  
+  inpairs = pairs[,3:4] #bookkeeping  
+  names(inpairs) = c('No1','No2')
+  
+  #get connectivities per node
+  degreeTb = data.frame( table(c(inpairs$No1, inpairs$No2)))
+  names(degreeTb) = c("No", "degree")
+  degreeTb$moduleAge = NA;
+  
+  for( i in 1:length(degreeTb[,1])){
+    if ( essenLookupTb[ degreeTb$No[i] ]) { #essential node
+      lambda = ifelse( degreeTb$degree[i] >= threshold, lambda1, lambda2)
+      age = rexp( degreeTb$degree[i], rate=lambda ) #exponential age
+      if(degreeTb$degree[i] >= threshold){
+        active = runif(degreeTb$degree[i])  #uniform interaction stochasticity
+        active = ifelse( active<=p, 1, NA  ) #pick active interactions
+        if( sum(active, na.rm=T) > 0 ){ #there should be at least 1 active intxn
+          age = age * active # only active interactions for modular age estimation
+          degreeTb$moduleAge[i] = max(age, na.rm=T) #maximum intxn age is the module age
+        } else {# when no active intxn is available 
+          degreeTb$moduleAge[i] = 0; #this module is born dead.
+        }
+      } else { # for degree < threshold, no stochasticity is applied. 
+        degreeTb$moduleAge[i] = max(age, na.rm=T) #maximum intxn age is the module age
+      }
+    } else {# non-essential node
+      degreeTb$moduleAge[i] = NA 
+    }
+  }
+  
+  summary(degreeTb)
+  currentNetworkAge = min(degreeTb$moduleAge, na.rm=T)
+}
+
+
+
 #20140408 old ms02_singlerun() did not check id1-id2 versus id2-id1. 
 # So, I wrote v2 and wrapp the old function to v2 function call. 
 #permute.pairs.wo.selfpairs = function( inpairs,  ncycles=10, debug=1 ) {
 ms02_singlerun = function( inpairs,  ncycles=10, indebug=0 ) { # Renamed, 2014 Feb 12
   return( ms02_singlerun_v2( inpairs,  ncycles=ncycles, indebug=indebug ))
 }
-
 
 ms02_singlerun_v2 = function( inpairs,  ncycles=10, indebug=0 ) { 
   if (ncycles >= 1 ) {
@@ -57,12 +103,6 @@ ms02_singlerun_v2 = function( inpairs,  ncycles=10, indebug=0 ) {
     return( c(NA,NA,NA )) 
   }
 }#end of ms02 v2
-
-
-
-
-
-
 
 
 single_network_failure = function(lambda, p, pairs, runningORFs) {

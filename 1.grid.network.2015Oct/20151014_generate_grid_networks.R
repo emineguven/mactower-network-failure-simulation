@@ -5,8 +5,8 @@
 rm(list=ls())
 debug = 0; 
 
-# R -f file --args Degree numOfEssenNode outNetworkFile outEssenLookupTbFile 
-# R -f 20151014_generate_grid_networks.R --args 4 1000 _Degree4N1000_network.csv _Degree4N100_EssenLookupTb.csv
+# R -f file --args                         Degree numOfEssenNode outNetworkFile outEssenLookupTbFile 
+# R -f 20151014_generate_grid_networks.R --args 4 1000           Degree4N1000_network.csv Degree4N1000_EssenLookupTb.csv
 
 options(echo=TRUE) # if you want see commands in output file
 args <- commandArgs(trailingOnly = TRUE)
@@ -39,7 +39,7 @@ length(unique(pairs[,2]))
 write.csv(pairs, outNetworkFile, row.names = F)
 
 outEssenLookupTb = c(rep(1, numOfEssenNodes), rep(0, numOfEssenNodes*degree))
-write.csv(outEssenLookupTb, outEssenLookupTbFile, row.names = F)
+write.csv(outEssenLookupTb, outEssenLookupTbFile, row.names = T)
 
 
 

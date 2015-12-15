@@ -1,5 +1,6 @@
 
 ##########################################
+#2015Dec a generic network simulation code with files names as input
 #2015Oct13, use numeric lookup table for essential genes.
 #2014March3, redo ginppi simulation witht same parameter for ms02networks. 
 # 2014 Feb 17, change name "20131221.DIPandGIN.sim.aging_v2.R" to "net-aging-sim-2014Feb17.R"
@@ -47,31 +48,34 @@ single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p
   summary(degreeTb)
   currentNetworkAge = min(degreeTb$moduleAge, na.rm=T)
 }
+#                    1                     2           3      4           5          6   7
+# R -f file --args pairwise-networkFile LookUpTbFile lambda1 lambda2 degreeThreshold p popSize
+# R -f _todo.20151213-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 4 0.9 5
+# R -f _todo.20151213-netsim-generic.R --args data/merged_PPIGIN_Factorized2015Oct13.csv data/essntialGeneLookupTable_20151013.csv   0.002 0.0002 4 0.9 5
 
-#source("network.r")
-
-# R -f file --args lambda1 lambda2 degreeThreshold p popSize
-# R -f 20151013-net-sim-ginppi.R --args 0.002 0.0002 4 0.9 5
 options(echo=TRUE) # if you want see commands in output file
 args <- commandArgs(trailingOnly = TRUE)
 print(args)
-lambda1 = as.numeric(args[1]); lambda1;
-lambda2 = as.numeric(args[2]); lambda2;
-degreeThreshold = as.integer((args[3])); degreeThreshold
-p = as.numeric(args[4]); p;
-popSize = as.numeric(args[5]); popSize;
+inNetworkFile = args[1];
+inLookupTbFile = args[2];
+lambda1 = as.numeric(args[3]); lambda1;
+lambda2 = as.numeric(args[4]); lambda2;
+degreeThreshold = as.integer((args[5])); degreeThreshold
+p = as.numeric(args[6]); p;
+popSize = as.numeric(args[7]); popSize;
 
-list.files(path='data', )
-debug = 0; 
+list.files(path='net1', )
+debug = 9; 
 
 #essential gene info
-essenTb = read.csv("data/SummaryRegressionHetHomFactorized2015Oct13.csv", colClasses=rep('character', 9))
-essenLookupTb = read.csv("data/essntialGeneLookupTable_20151013.csv", row.names=1)
-essenLookupTb = essenLookupTb[,1]
+#essenTb = read.csv("data/SummaryRegressionHetHomFactorized2015Oct13.csv", colClasses=rep('character', 9))
+#essenLookupTb = read.csv("net1/Degree4N1000_EssenLookupTb.csv", row.names = 1)
+essenLookupTb = read.csv(inNetworkFile);
+essenLookupTb = essenLookupTb[,1];
 
-infile = "data/merged_PPIGIN_Factorized2015Oct13.csv"
-pairs = read.csv(infile)
-  names(pairs) = c("id1",'id2', "No1", "No2")
+# inNetworFile = "net1/Degree4N1000_network.csv"
+pairs = read.csv(inNetworkFile); 
+names(pairs) = c("No1", "No2")
   print(head(pairs))
   if(debug==9) {     pairs = pairs[1:1000,]  }
   pairs = pairs[ pairs$No1 != pairs$No2, ]  
@@ -91,7 +95,7 @@ pairs = read.csv(infile)
   #median degree =5, mean=12
   #for one ms02, media =6, mean=13.68, so orginal network is power-law like, skew at two ends. 
 
-  full_age_dir = "ori.ginppit.2015Oct"  
+  full_age_dir = ""  
   
       popAges = numeric(popSize)
       time1 = date()
