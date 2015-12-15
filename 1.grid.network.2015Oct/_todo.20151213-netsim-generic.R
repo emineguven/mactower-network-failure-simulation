@@ -48,9 +48,9 @@ single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p
   summary(degreeTb)
   currentNetworkAge = min(degreeTb$moduleAge, na.rm=T)
 }
-#                    1                     2           3      4           5          6   7
-# R -f file --args pairwise-networkFile LookUpTbFile lambda1 lambda2 degreeThreshold p popSize
-# R -f _todo.20151213-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 4 0.9 5
+#                    1                     2           3      4           5          6   7     8
+# R -f file --args pairwise-networkFile LookUpTbFile lambda1 lambda2 degreeThreshold p popSize outputdir
+# R -f _todo.20151213-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 4 0.9 5 net1
 # R -f _todo.20151213-netsim-generic.R --args data/merged_PPIGIN_Factorized2015Oct13.csv data/essntialGeneLookupTable_20151013.csv   0.002 0.0002 4 0.9 5
 
 options(echo=TRUE) # if you want see commands in output file
@@ -63,6 +63,7 @@ lambda2 = as.numeric(args[4]); lambda2;
 degreeThreshold = as.integer((args[5])); degreeThreshold
 p = as.numeric(args[6]); p;
 popSize = as.numeric(args[7]); popSize;
+outputdir = args[8];
 
 list.files(path='net1', )
 debug = 9; 
@@ -95,7 +96,7 @@ names(pairs) = c("No1", "No2")
   #median degree =5, mean=12
   #for one ms02, media =6, mean=13.68, so orginal network is power-law like, skew at two ends. 
 
-  full_age_dir = ""  
+  #full_age_dir = ""  
   
       popAges = numeric(popSize)
       time1 = date()
@@ -103,7 +104,7 @@ names(pairs) = c("No1", "No2")
       while ((j <= popSize) && ( count < popSize*30)) {
         count = count + 1;      
         print(paste("count=",count))
-        currentNetworkAge = single_network_failure_v2(lambda1, lambda2, degreeCutoff, p, pairs, essenLookupTb)
+        currentNetworkAge = single_network_failure_v2(lambda1, lambda2, degreeThreshold, p, pairs, essenLookupTb)
         if (currentNetworkAge > 0) {
           popAges[j] = currentNetworkAge      
           j = j+1
@@ -112,9 +113,9 @@ names(pairs) = c("No1", "No2")
             
       
       timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
-      age.file.name=paste("threshold", degreeCutoff, "p", p, "lambda1", lambda1, 
+      age.file.name=paste("threshold", degreeThreshold, "p", p, "lambda1", lambda1, 
                           "lambda2", lambda2,'popsize',popSize, "time",timestamp, "txt", sep="." )
-      full_age_file = paste( full_age_dir,'/', age.file.name, sep='')
+      full_age_file = paste( outputdir, '/', age.file.name, sep='')
       
       write.csv( popAges, full_age_file, row.names=F)
       
