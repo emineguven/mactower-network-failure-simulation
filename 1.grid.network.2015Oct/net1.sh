@@ -1,8 +1,18 @@
-R -f 20151215-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 5 1.0 1000 net1
-R -f 20151215-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 5 0.98 1000 net1
-R -f 20151215-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 5 0.9 1000 net1
-R -f 20151215-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 5 0.85 1000 net1
-R -f 20151215-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 5 0.8 1000 net1
-R -f 20151215-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 5 0.75 1000 net1
-R -f 20151215-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 5 0.75 1000 net1
+Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/net1/Degree4N1000_EssenLookupTb.csv -l1 0.002 -l2 0.0002 -dt 5 -op net1 -od net1 -p 1.0
+
+Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/net1/Degree4N1000_EssenLookupTb.csv -l1 0.002 -l2 0.0002 -dt 5 -op net1 -od net1 -p 0.95
+
+Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/net1/Degree4N1000_EssenLookupTb.csv -l1 0.002 -l2 0.0002 -dt 5 -op net1 -od net1 -p 0.9
+
+Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/net1/Degree4N1000_EssenLookupTb.csv -l1 0.002 -l2 0.0002 -dt 5 -op net1 -od net1 -p 0.85
+
+Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/net1/Degree4N1000_EssenLookupTb.csv -l1 0.002 -l2 0.0002 -dt 5 -op net1 -od net1 -p 0.8
+
+Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/net1/Degree4N1000_EssenLookupTb.csv -l1 0.002 -l2 0.0002 -dt 5 -op net1 -od net1 -p 0.75
+
+
+
+
+
+
 
