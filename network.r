@@ -20,16 +20,17 @@ summarize_mean_from_files = function(infiles, inputdir){
   outtb; 
 }
 
+
 single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p, pairs, essenLookupTb ) {
   # single network failure simulation, 20151013Tue
-  # lambda1: First exponential constant failure rate for edges with degree > threshold
-  # lambda2: Second exponential constant failure rate for edges with degree <= threshold
+  # lambda1: First exponential constant failure rate for edges with degree >= threshold
+  # lambda2: Second exponential constant failure rate for edges with degree < threshold
   # threshold: degree threshold for lambda1 and lambda2
   # pairs: network in pairwide format, using numeric NOs 20151013
   # essenLookupTb: lookup table for essential and nonessential genes, numeric values 
   ## for debug:   lambda1 = 1/50; lambda2= lambda1/10; threshold=4; p=0.8
   
-  inpairs = pairs[,3:4] #bookkeeping  
+  inpairs = pairs[,1:2] #bookkeeping  
   names(inpairs) = c('No1','No2')
   
   #get connectivities per node
@@ -38,7 +39,7 @@ single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p
   degreeTb$moduleAge = NA;
   
   for( i in 1:length(degreeTb[,1])){
-    if ( essenLookupTb[ degreeTb$No[i] ]) { #essential node
+    if ( essenLookupTb[ degreeTb$No[i] ] != 0) { #essential node
       lambda = ifelse( degreeTb$degree[i] >= threshold, lambda1, lambda2)
       age = rexp( degreeTb$degree[i], rate=lambda ) #exponential age
       if(degreeTb$degree[i] >= threshold){
@@ -61,7 +62,6 @@ single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p
   summary(degreeTb)
   currentNetworkAge = min(degreeTb$moduleAge, na.rm=T)
 }
-
 
 
 #20140408 old ms02_singlerun() did not check id1-id2 versus id2-id1. 

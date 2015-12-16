@@ -4,7 +4,8 @@
 #2015Dec14 '20151215-netsim-generic.R': a generic network simulation code with files names as input
 #2015Oct13, use numeric lookup table for essential genes.
 
-library(GetoptLong)
+rm(list=ls())
+#source( 'network.r' )
 
 single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p, pairs, essenLookupTb ) {
   # single network failure simulation, 20151013Tue
@@ -15,7 +16,7 @@ single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p
   # essenLookupTb: lookup table for essential and nonessential genes, numeric values 
   ## for debug:   lambda1 = 1/50; lambda2= lambda1/10; threshold=4; p=0.8
   
-  inpairs = pairs[,3:4] #bookkeeping  
+  inpairs = pairs[,1:2] #bookkeeping  
   names(inpairs) = c('No1','No2')
   
   #get connectivities per node
@@ -24,7 +25,7 @@ single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p
   degreeTb$moduleAge = NA;
   
   for( i in 1:length(degreeTb[,1])){
-    if ( essenLookupTb[ degreeTb$No[i] ]) { #essential node
+    if ( essenLookupTb[ degreeTb$No[i] ] != 0) { #essential node
       lambda = ifelse( degreeTb$degree[i] >= threshold, lambda1, lambda2)
       age = rexp( degreeTb$degree[i], rate=lambda ) #exponential age
       if(degreeTb$degree[i] >= threshold){
@@ -47,9 +48,20 @@ single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p
   summary(degreeTb)
   currentNetworkAge = min(degreeTb$moduleAge, na.rm=T)
 }
-# Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/net1/Degree4N1000_EssenLookupTb.csv -l1 0.002 -l2 0.0002 -dt 5 -p 1.0 -n 5  -op net1 -od net1
 
-popSize = 1000;
+
+# Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.002 -l2 0.0002 -dt 5 -p 1.0 -n 5  -op net1 -od net1
+
+tmp = "
+inNetworkFile = 'net1/Degree4N1000_network.csv'
+inLookupTbFile = 'net1/Degree4N1000_EssenLookupTb.csv'
+lambda1 = 0.002
+lambda2 = lambda1/10
+p=1.0
+"
+library(GetoptLong)
+
+popSize = 100;
 outputdir = getwd();
 outputprefix = '';
 degreeThreshold = 5;
@@ -61,7 +73,7 @@ GetoptLong(c(
   "lambda1|l1=f", "edge failure rate1 for node with degree >= degreeThreshold ",
   "lambda2|l2=f", "edge failure rate2 for node with degree < degreeThreshold ",
   "probability|p=f", "binomial probability of edges being active ",
-  "popSize|n=f", "population size, number of simulated networks, optional, default 1000",
+  "popSize|n=f", "population size, number of simulated networks, default 100",
   "outputdir|od=s", "output directory, optional, default current directory",
   "outputprefix|op=s", "prefix of outputfiles, optional, default NULL",
   "debug|d=i", "debug"
@@ -69,8 +81,8 @@ GetoptLong(c(
 p=probability; 
 list.files(path=outputdir )
 
-essenLookupTb = read.csv(inNetworkFile);
-essenLookupTb = essenLookupTb[,1];
+essenLookupTb = read.csv(inLookupTbFile, row.names=1);
+essenLookupTb = as.vector(essenLookupTb[,1]); #20151215 after update to R3.2.3
 
 pairs = read.csv(inNetworkFile); 
 names(pairs) = c("No1", "No2")
