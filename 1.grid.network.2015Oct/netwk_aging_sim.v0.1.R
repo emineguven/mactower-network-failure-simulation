@@ -100,6 +100,7 @@ pairs= pairs[! pairs$remove, ]
 degreeTb = data.frame( table(c(pairs$No1, pairs$No2)))
 summary(degreeTb); 
 degreeTb[1:10,]
+summary(degreeTb)
 
 popAges = numeric(popSize)
 time1 = date()
