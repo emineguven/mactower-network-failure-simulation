@@ -8,8 +8,8 @@ library(GetoptLong)
 
 single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p, pairs, essenLookupTb ) {
   # single network failure simulation, 20151013Tue
-  # lambda1: First exponential constant failure rate for edges with degree > threshold
-  # lambda2: Second exponential constant failure rate for edges with degree <= threshold
+  # lambda1: First exponential constant failure rate for edges with degree >= threshold
+  # lambda2: Second exponential constant failure rate for edges with degree < threshold
   # threshold: degree threshold for lambda1 and lambda2
   # pairs: network in pairwide format, using numeric NOs 20151013
   # essenLookupTb: lookup table for essential and nonessential genes, numeric values 
@@ -58,8 +58,8 @@ GetoptLong(c(
   "inNetworkFile|if1=s", "input network file",
   "inLookupTbFile|if2=s", "input node lookuptable file",
   "degreeThreshold|dt=i", "node degree threhold to determine lamdba, optional, default 5",
-  "lambda1|l1=f", "edge failure rate1 for node with degree < degreeThreshold ",
-  "lambda2|l2=f", "edge failure rate2 for node with degree > degreeThreshold ",
+  "lambda1|l1=f", "edge failure rate1 for node with degree >= degreeThreshold ",
+  "lambda2|l2=f", "edge failure rate2 for node with degree < degreeThreshold ",
   "probability|p=f", "binomial probability of edges being active ",
   "popSize|n=f", "population size, number of simulated networks, optional, default 1000",
   "outputdir|od=s", "output directory, optional, default current directory",

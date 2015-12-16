@@ -2,21 +2,12 @@
 ##########################################
 # 2015Dec 16. 
 # Plan, loopover netwk-aging files in a directory and generate a report file
-# Rscript analyze_netwk_aging.v0.0.R -id net1 -ip net1 -o __test.csv
+# Rscript analyze_netwk_aging.v0.0.R --inputdir net1 --inputprefix net1 -o __test.csv
 
 rm(list=ls())
-library(GetoptLong)
 
-summarize_mean_from_files = function(myfiles){
-  outtb = data.frame(myfiles)
-  outtb$mean = NA;
-  for( i in 1:length(myfiles)) {
-    currentFile = paste( inputdir, '/', myfiles[i], sep='');
-    tb = read.csv(currentFile)
-    outtb$mean[i] = mean(tb[,1])
-  }
-  outtb; 
-}
+source('network.r')
+library(GetoptLong)
 
 inputdir = getwd(); 
 inputprefix = '';
@@ -33,9 +24,7 @@ GetoptLong(c(
 myfiles = list.files(inputdir)
 myfiles = myfiles[ grep(inputprefix, myfiles) ]
 
-
-
-out = summarize_mean_from_files( myfiles )
+out = summarize_mean_from_files( myfiles, inputdir )
 #timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
 write.csv( out, outputFile, row.names=F)
 

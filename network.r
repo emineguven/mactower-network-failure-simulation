@@ -3,6 +3,23 @@
 #todo current simulation does not consider essen-essen interaction
 
 #2015 Fall
+
+
+summarize_mean_from_files = function(infiles, inputdir){
+  debug = 0; 
+  #calcualte means of networking aging data in a vector of files
+  myfiles = infiles; inputdir = inputdir;
+  if( debug) { print (myfiles)}; 
+  outtb = data.frame(myfiles)
+  outtb$mean = NA;
+  for( i in 1:length(myfiles)) {
+    currentFile = paste( inputdir, '/', myfiles[i], sep='');
+    tb = read.csv(currentFile)
+    outtb$mean[i] = mean(tb[,1])
+  }
+  outtb; 
+}
+
 single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p, pairs, essenLookupTb ) {
   # single network failure simulation, 20151013Tue
   # lambda1: First exponential constant failure rate for edges with degree > threshold
