@@ -50,8 +50,8 @@ single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p
 }
 #                    1                     2           3      4           5          6   7     8
 # R -f file --args pairwise-networkFile LookUpTbFile lambda1 lambda2 degreeThreshold p popSize outputdir
-# R -f _todo.20151213-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 4 0.9 5 net1
-# R -f _todo.20151213-netsim-generic.R --args data/merged_PPIGIN_Factorized2015Oct13.csv data/essntialGeneLookupTable_20151013.csv   0.002 0.0002 4 0.9 5
+# R -f 20151215-netsim-generic.R --args net1/Degree4N1000_network.csv  net1/net1/Degree4N1000_EssenLookupTb.csv 0.002 0.0002 5 1.0 1000 net1
+# R -f 20151215-netsim-generic.R --args data/merged_PPIGIN_Factorized2015Oct13.csv data/essntialGeneLookupTable_20151013.csv   0.002 0.0002 4 0.9 5
 
 options(echo=TRUE) # if you want see commands in output file
 args <- commandArgs(trailingOnly = TRUE)
@@ -93,10 +93,6 @@ names(pairs) = c("No1", "No2")
   degreeTb = data.frame( table(c(pairs$No1, pairs$No2)))
   summary(degreeTb); 
   degreeTb[1:10,]
-  #median degree =5, mean=12
-  #for one ms02, media =6, mean=13.68, so orginal network is power-law like, skew at two ends. 
-
-  #full_age_dir = ""  
   
       popAges = numeric(popSize)
       time1 = date()
@@ -110,11 +106,10 @@ names(pairs) = c("No1", "No2")
           j = j+1
         } 
       }# end of j while-loop, population loop
-            
       
       timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
       age.file.name=paste("threshold", degreeThreshold, "p", p, "lambda1", lambda1, 
-                          "lambda2", lambda2,'popsize',popSize, "time",timestamp, "txt", sep="." )
+                          "lambda2", lambda2,'popsize',popSize, "time",timestamp, "csv", sep="." )
       full_age_file = paste( outputdir, '/', age.file.name, sep='')
       
       write.csv( popAges, full_age_file, row.names=F)
