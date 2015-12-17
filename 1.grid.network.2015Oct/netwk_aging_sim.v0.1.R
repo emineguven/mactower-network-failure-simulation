@@ -5,50 +5,7 @@
 #2015Oct13, use numeric lookup table for essential genes.
 
 rm(list=ls())
-#source( 'network.r' )
-
-single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p, pairs, essenLookupTb ) {
-  # single network failure simulation, 20151013Tue
-  # lambda1: First exponential constant failure rate for edges with degree >= threshold
-  # lambda2: Second exponential constant failure rate for edges with degree < threshold
-  # threshold: degree threshold for lambda1 and lambda2
-  # pairs: network in pairwide format, using numeric NOs 20151013
-  # essenLookupTb: lookup table for essential and nonessential genes, numeric values 
-  ## for debug:   lambda1 = 1/50; lambda2= lambda1/10; threshold=4; p=0.8
-  
-  inpairs = pairs[,1:2] #bookkeeping  
-  names(inpairs) = c('No1','No2')
-  
-  #get connectivities per node
-  degreeTb = data.frame( table(c(inpairs$No1, inpairs$No2)))
-  names(degreeTb) = c("No", "degree")
-  degreeTb$moduleAge = NA;
-  
-  for( i in 1:length(degreeTb[,1])){
-    if ( essenLookupTb[ degreeTb$No[i] ] != 0) { #essential node
-      lambda = ifelse( degreeTb$degree[i] >= threshold, lambda1, lambda2)
-      age = rexp( degreeTb$degree[i], rate=lambda ) #exponential age
-      if(degreeTb$degree[i] >= threshold){
-        active = runif(degreeTb$degree[i])  #uniform interaction stochasticity
-        active = ifelse( active<=p, 1, NA  ) #pick active interactions
-        if( sum(active, na.rm=T) > 0 ){ #there should be at least 1 active intxn
-          age = age * active # only active interactions for modular age estimation
-          degreeTb$moduleAge[i] = max(age, na.rm=T) #maximum intxn age is the module age
-        } else {# when no active intxn is available 
-          degreeTb$moduleAge[i] = 0; #this module is born dead.
-        }
-      } else { # for degree < threshold, no stochasticity is applied. 
-        degreeTb$moduleAge[i] = max(age, na.rm=T) #maximum intxn age is the module age
-      }
-    } else {# non-essential node
-      degreeTb$moduleAge[i] = NA 
-    }
-  }
-  
-  summary(degreeTb)
-  currentNetworkAge = min(degreeTb$moduleAge, na.rm=T)
-}
-
+source( 'network.r' )
 
 # Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.002 -l2 0.0002 -dt 5 -p 1.0 -n 5  -op net1 -od net1
 

@@ -4,7 +4,6 @@
 
 #2015 Fall
 
-
 summarize_mean_from_files = function(infiles, inputdir){
   debug = 0; 
   #calcualte means of networking aging data in a vector of files
@@ -20,8 +19,29 @@ summarize_mean_from_files = function(infiles, inputdir){
   outtb; 
 }
 
+multiple_network_failure = function(INpopSize, INlambda1, INlambda2=INlambda1/10, INthreshold=5, probability, INpairs, INessenLookupTb ) {
+  popSize = INpopSize; lambda1=INlambda1; lambda2=INlambda2;
+  threshold=INthreshold; p= probability; pairs=INpairs; essenLookupTb=INessenLookupTb; 
+  
+  popAges = numeric(popSize)
+  j=1; count = 0; 
+  while ((j <= popSize) && ( count < popSize*30)) {
+    count = count + 1;      
+    print(paste("count=",count))
+    currentNetworkAge = single_network_failure_v2(lambda1, lambda2, degreeThreshold, p, pairs, essenLookupTb)
+    if (currentNetworkAge > 0) {
+      popAges[j] = currentNetworkAge      
+      j = j+1
+    } 
+  }# end of j while-loop, population loop
+  
+ return(popAges)
+}#END
 
-single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=4, p, pairs, essenLookupTb ) {
+
+############# 
+# To use lambda1 for all edges, choose threshold = 0
+single_network_failure_v2 = function(lambda1, lambda2=lambda1/10, threshold=5, p, pairs, essenLookupTb ) {
   # single network failure simulation, 20151013Tue
   # lambda1: First exponential constant failure rate for edges with degree >= threshold
   # lambda2: Second exponential constant failure rate for edges with degree < threshold
@@ -121,7 +141,7 @@ ms02_singlerun_v2 = function( inpairs,  ncycles=10, indebug=0 ) {
   }
 }#end of ms02 v2
 
-
+#old version
 single_network_failure = function(lambda, p, pairs, runningORFs) {
   # single network failure simulation
   # lambda: exponential constant failure rate for edges
