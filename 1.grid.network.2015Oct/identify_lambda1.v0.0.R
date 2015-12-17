@@ -1,8 +1,11 @@
 ##########################################
-# 2015Dec 16. 
-# Plan, simulated a networking aging, calculate its mean lifespan, change lambda
+# 2015Dec 16. stepwise change of lambda1 to fit network failure to a target average lifespan
+# Plan: simulated a networking aging, calculate its mean lifespan, change lambda. 
+# iterate till limit is reached. 
 
 # Rscript identify_lambda1.v0.0.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.005 -l2 0.0002 -dt 0 -p 1.0 -n 10  -op net1 -od net1 -tLS 30 -ml 20 -cs 1.2
+
+# Rscript identify_lambda1.v0.0.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0002 -dt 0 -p 1.0 -n 20  -op net1 -od net1 -tLS 30 -ml 20 -cs 1.05 -el 0.5
 
 rm(list=ls())
 source('network.r')
