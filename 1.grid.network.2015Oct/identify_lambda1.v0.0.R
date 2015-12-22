@@ -7,6 +7,8 @@
 
 # Rscript identify_lambda1.v0.0.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0002 -dt 0 -p 1.0 -n 20  -op net1 -od net1 -tLS 30 -ml 20 -cs 1.05 -el 0.5
 
+# Rscript identify_lambda1.v0.0.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.0027 -l2 0.0002 -dt 0 -p 0.9 -n 20  -op net1 -od net1 -tLS 30 -ml 20 -cs 1.05 -el 0.5
+
 rm(list=ls())
 source('network.r')
 library(GetoptLong)
