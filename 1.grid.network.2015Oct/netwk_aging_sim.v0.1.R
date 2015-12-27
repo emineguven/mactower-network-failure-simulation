@@ -7,7 +7,7 @@
 rm(list=ls())
 source( 'network.r' )
 
-# Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0006 -dt 0 -p 1.0 -n 5  -op net1 -od net1
+# Rscript netwk_aging_sim.v0.1.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0006 -dt 0 -p 1.0 -n 1000  -op net1 -od net1
 
 tmp = "
 inNetworkFile = 'net1/Degree4N1000_network.csv'
@@ -30,7 +30,7 @@ GetoptLong(c(
   "lambda1|l1=f", "edge failure rate1 for node with degree >= degreeThreshold ",
   "lambda2|l2=f", "edge failure rate2 for node with degree < degreeThreshold ",
   "probability|p=f", "binomial probability of edges being active ",
-  "popSize|n=f", "population size, number of simulated networks, default 100",
+  "popSize|n=i", "population size, number of simulated networks, default 100",
   "outputdir|od=s", "output directory, optional, default current directory",
   "outputprefix|op=s", "prefix of outputfiles, optional, default NULL",
   "debug|d=i", "debug"
