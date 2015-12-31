@@ -14,9 +14,7 @@ library(foreach)
 library(doMC)
 library(GetoptLong)
 
-# Rscript netwk_aging_sim.v0.1b.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0006 -dt 0 -p 1.0 -n 1000  -op net1 -od net1
-
-# Rscript netwk_aging_sim.v0.1b.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0002 -dt 0 -p 1.0 -n 100  -op net1 -od net1 -iC 4 -d 1
+# Rscript netwk_aging_sim.v0.1b.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0002 -dt 0 -p 0.9 -n 50  -op net1 -od net1 -iC 4 -d 1
 
 tmp = "
 inNetworkFile = 'net1/Degree4N1000_network.csv'
@@ -78,7 +76,7 @@ time1 = date()
 j=1; count = 0; 
 while ((j <= popSize) && ( count < popSize*5)) {
   myParrallStep = inputCores * 5
-  bufferAges = foreach(i=1:myParrallStep) %dopar% {
+  bufferAges = foreach(i=1:myParrallStep, .combine = 'cbind') %dopar% {
     currentNetworkAge = single_network_failure_v2(lambda1, lambda2, degreeThreshold, p, pairs, essenLookupTb)
   }
   goodAges = bufferAges [bufferAges>0] #goodAges() return NULL? 
@@ -99,10 +97,12 @@ while ((j <= popSize) && ( count < popSize*5)) {
   } 
 }# end of j while-loop, population loop
 
+popAges = popAges[1:popSize]
+
 timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
 age.file.name=paste(outputprefix,"dt", degreeThreshold, "p", p, "L1", lambda1, 
                     "L2", lambda2,'n',popSize, "time",timestamp, "csv", sep="." )
 full_age_file = paste( outputdir, '/', age.file.name, sep='')
 
-write.csv( popAges, full_age_file, row.names=F)
+write.csv( data.frame(popAges), full_age_file, row.names=F)
 
