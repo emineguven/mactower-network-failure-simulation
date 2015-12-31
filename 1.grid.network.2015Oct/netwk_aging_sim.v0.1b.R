@@ -76,7 +76,7 @@ time1 = date()
 j=1; count = 0; 
 while ((j <= popSize) && ( count < popSize*5)) {
   myParrallStep = inputCores * 5
-  bufferAges = foreach(i=1:myParrallStep, .combine = 'cbind') %dopar% {
+  bufferAges = foreach(i=1:myParrallStep, .combine = 'rbind') %dopar% {
     currentNetworkAge = single_network_failure_v2(lambda1, lambda2, degreeThreshold, p, pairs, essenLookupTb)
   }
   goodAges = bufferAges [bufferAges>0] #goodAges() return NULL? 
@@ -104,5 +104,5 @@ age.file.name=paste(outputprefix,"dt", degreeThreshold, "p", p, "L1", lambda1,
                     "L2", lambda2,'n',popSize, "time",timestamp, "csv", sep="." )
 full_age_file = paste( outputdir, '/', age.file.name, sep='')
 
-write.csv( data.frame(popAges), full_age_file, row.names=F)
+write.csv( popAges, full_age_file, row.names=F)
 
