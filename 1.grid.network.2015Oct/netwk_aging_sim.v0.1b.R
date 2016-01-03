@@ -8,15 +8,11 @@
 #2015Oct13, use numeric lookup table for essential genes.
 
 rm(list=ls())
-source( 'network.r' )
-
 library(foreach)
 library(doMC)
 library(GetoptLong)
 
-# Rscript netwk_aging_sim.v0.1b.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0006 -dt 0 -p 1.0 -n 1000  -op net1 -od net1
-
-# Rscript netwk_aging_sim.v0.1b.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0002 -dt 0 -p 1.0 -n 100  -op net1 -od net1 -iC 4 -d 1
+# Rscript netwk_aging_sim.v0.1b.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0002 -dt 0 -p 0.9 -n 50  -op net1 -od net1 -iC 4 -d 1
 
 tmp = "
 inNetworkFile = 'net1/Degree4N1000_network.csv'
@@ -35,6 +31,7 @@ outputprefix = '';
 degreeThreshold = 0;
 debug = 0;
 inputCores = 2; 
+mydir = 'NA';
 GetoptLong(c(
   "inNetworkFile|if1=s", "input network file",
   "inLookupTbFile|if2=s", "input node lookuptable file",
@@ -46,8 +43,15 @@ GetoptLong(c(
   "outputdir|od=s", "output directory, optional, default current directory",
   "outputprefix|op=s", "prefix of outputfiles, optional, default NULL",
   "debug|d=i", "debug",
-  "inputCores|iC=i", "number of CPU cores, default=2"
+  "inputCores|iC=i", "number of CPU cores, default=2",
+  "mydir|h=s", "source directory"
 ))
+
+if( lambda2==0) {lambda2 = lambda1/10 }
+mydir
+setwd(mydir)
+source( 'network.r' )
+
 p=probability; 
 list.files(path=outputdir )
 registerDoMC(cores=inputCores)
@@ -78,7 +82,7 @@ time1 = date()
 j=1; count = 0; 
 while ((j <= popSize) && ( count < popSize*5)) {
   myParrallStep = inputCores * 5
-  bufferAges = foreach(i=1:myParrallStep) %dopar% {
+  bufferAges = foreach(i=1:myParrallStep, .combine = 'rbind') %dopar% {
     currentNetworkAge = single_network_failure_v2(lambda1, lambda2, degreeThreshold, p, pairs, essenLookupTb)
   }
   goodAges = bufferAges [bufferAges>0] #goodAges() return NULL? 
@@ -98,6 +102,8 @@ while ((j <= popSize) && ( count < popSize*5)) {
     print(paste("netwk_aging_sim::count=",count, "  j=", j))
   } 
 }# end of j while-loop, population loop
+
+popAges = popAges[1:popSize]
 
 timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
 age.file.name=paste(outputprefix,"dt", degreeThreshold, "p", p, "L1", lambda1, 
