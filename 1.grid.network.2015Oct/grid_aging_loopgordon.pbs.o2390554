@@ -1,0 +1,516 @@
+hostname
+/oasis/scratch/hongqin/temp_project/mactower-network-failure-simulation/1.grid.network.2015Oct
+1.0 0.003
+[1] "/oasis/scratch/hongqin/temp_project/mactower-network-failure-simulation/1.grid.network.2015Oct"
+ [1] "Degree4N1000_EssenLookupTb.csv"                                     
+ [2] "Degree4N1000_network.csv"                                           
+ [3] "net1.dt.0.p.0.85.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_235311.csv"
+ [4] "net1.dt.0.p.0.85.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004754.csv"
+ [5] "net1.dt.0.p.0.9.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234654.csv" 
+ [6] "net1.dt.0.p.0.9.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004119.csv" 
+ [7] "net1.dt.0.p.0.95.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234544.csv"
+ [8] "net1.dt.0.p.0.95.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004001.csv"
+ [9] "net1.dt.0.p.1.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234541.csv"   
+[10] "net1.dt.0.p.1.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_003943.csv"   
+  No1  No2
+1   1 1001
+2   1 1002
+3   1 1003
+4   1 1004
+5   2 1005
+6   2 1006
+      Var1           Freq    
+ 1      :   1   Min.   :1.0  
+ 2      :   1   1st Qu.:1.0  
+ 3      :   1   Median :1.0  
+ 4      :   1   Mean   :1.6  
+ 5      :   1   3rd Qu.:1.0  
+ 6      :   1   Max.   :4.0  
+ (Other):4994                
+   Var1 Freq
+1     1    4
+2     2    4
+3     3    4
+4     4    4
+5     5    4
+6     6    4
+7     7    4
+8     8    4
+9     9    4
+10   10    4
+      Var1           Freq    
+ 1      :   1   Min.   :1.0  
+ 2      :   1   1st Qu.:1.0  
+ 3      :   1   Median :1.0  
+ 4      :   1   Mean   :1.6  
+ 5      :   1   3rd Qu.:1.0  
+ 6      :   1   Max.   :4.0  
+ (Other):4994                
+ [1] "netwk_aging_sim::bufferAges= 46.3575259782374"
+ [2] "netwk_aging_sim::bufferAges= 38.3688898675292"
+ [3] "netwk_aging_sim::bufferAges= 84.3930928802034"
+ [4] "netwk_aging_sim::bufferAges= 36.8081546002144"
+ [5] "netwk_aging_sim::bufferAges= 72.4584692703402"
+ [6] "netwk_aging_sim::bufferAges= 47.4515990354121"
+ [7] "netwk_aging_sim::bufferAges= 53.1599942284326"
+ [8] "netwk_aging_sim::bufferAges= 57.763931962351" 
+ [9] "netwk_aging_sim::bufferAges= 59.2655694733063"
+[10] "netwk_aging_sim::bufferAges= 30.8847113035098"
+[11] "netwk_aging_sim::bufferAges= 42.4512950703502"
+[12] "netwk_aging_sim::bufferAges= 25.4440158605576"
+[13] "netwk_aging_sim::bufferAges= 65.1234637860126"
+[14] "netwk_aging_sim::bufferAges= 53.2478972648581"
+[15] "netwk_aging_sim::bufferAges= 34.1313768457294"
+[16] "netwk_aging_sim::bufferAges= 72.8537262127208"
+[17] "netwk_aging_sim::bufferAges= 50.2866461562614"
+[18] "netwk_aging_sim::bufferAges= 52.8229845998188"
+[19] "netwk_aging_sim::bufferAges= 90.3333973996114"
+[20] "netwk_aging_sim::bufferAges= 25.9336609544452"
+[21] "netwk_aging_sim::bufferAges= 53.5569794786473"
+[22] "netwk_aging_sim::bufferAges= 57.582604286832" 
+[23] "netwk_aging_sim::bufferAges= 67.875908066829" 
+[24] "netwk_aging_sim::bufferAges= 29.4362441404493"
+[25] "netwk_aging_sim::bufferAges= 62.3116326583893"
+[26] "netwk_aging_sim::bufferAges= 25.6263744086027"
+[27] "netwk_aging_sim::bufferAges= 74.6074113994837"
+[28] "netwk_aging_sim::bufferAges= 36.9549540698226"
+[29] "netwk_aging_sim::bufferAges= 61.0122396610677"
+[30] "netwk_aging_sim::bufferAges= 71.5259374119341"
+[31] "netwk_aging_sim::bufferAges= 42.4357873077194"
+[32] "netwk_aging_sim::bufferAges= 51.4189461246133"
+[33] "netwk_aging_sim::bufferAges= 44.0837793673078"
+[34] "netwk_aging_sim::bufferAges= 55.4438435089492"
+[35] "netwk_aging_sim::bufferAges= 72.5052080427607"
+[36] "netwk_aging_sim::bufferAges= 54.0274035496016"
+[37] "netwk_aging_sim::bufferAges= 57.3358901045967"
+[38] "netwk_aging_sim::bufferAges= 33.2638385256534"
+[39] "netwk_aging_sim::bufferAges= 88.8509222616752"
+[40] "netwk_aging_sim::bufferAges= 54.5944368156294"
+[41] "netwk_aging_sim::bufferAges= 57.2631100109717"
+[42] "netwk_aging_sim::bufferAges= 78.35776977373"  
+[43] "netwk_aging_sim::bufferAges= 77.7694963658361"
+[44] "netwk_aging_sim::bufferAges= 75.692355469736" 
+[45] "netwk_aging_sim::bufferAges= 64.1262146333853"
+[46] "netwk_aging_sim::bufferAges= 67.4653244204819"
+[47] "netwk_aging_sim::bufferAges= 71.7561001268526"
+[48] "netwk_aging_sim::bufferAges= 93.7651394360389"
+[49] "netwk_aging_sim::bufferAges= 50.674050891151" 
+[50] "netwk_aging_sim::bufferAges= 81.402578560967" 
+[51] "netwk_aging_sim::bufferAges= 80.2524786752959"
+[52] "netwk_aging_sim::bufferAges= 64.5844506410261"
+[53] "netwk_aging_sim::bufferAges= 90.2751413380252"
+[54] "netwk_aging_sim::bufferAges= 35.0530574468984"
+[55] "netwk_aging_sim::bufferAges= 38.8094847905899"
+[56] "netwk_aging_sim::bufferAges= 59.4900001344417"
+[57] "netwk_aging_sim::bufferAges= 35.9910526312888"
+[58] "netwk_aging_sim::bufferAges= 39.4623771620293"
+[59] "netwk_aging_sim::bufferAges= 45.0027704549332"
+[60] "netwk_aging_sim::bufferAges= 76.0260043653003"
+[61] "netwk_aging_sim::bufferAges= 91.7468561480443"
+[62] "netwk_aging_sim::bufferAges= 61.2464153264372"
+[63] "netwk_aging_sim::bufferAges= 69.3737796197335"
+[64] "netwk_aging_sim::bufferAges= 48.4959944151342"
+[65] "netwk_aging_sim::bufferAges= 53.6422271915203"
+[66] "netwk_aging_sim::bufferAges= 89.5258620897391"
+[67] "netwk_aging_sim::bufferAges= 72.0154531300068"
+[68] "netwk_aging_sim::bufferAges= 90.7422147380809"
+[69] "netwk_aging_sim::bufferAges= 89.9525520702203"
+[70] "netwk_aging_sim::bufferAges= 62.8201724030077"
+[71] "netwk_aging_sim::bufferAges= 66.7842354935904"
+[72] "netwk_aging_sim::bufferAges= 33.5613923768202"
+[73] "netwk_aging_sim::bufferAges= 37.7407198150953"
+[74] "netwk_aging_sim::bufferAges= 37.3019107394564"
+[75] "netwk_aging_sim::bufferAges= 32.7922417469636"
+[76] "netwk_aging_sim::bufferAges= 43.6541026768585"
+[77] "netwk_aging_sim::bufferAges= 63.1379041723998"
+[78] "netwk_aging_sim::bufferAges= 73.641813391436" 
+[79] "netwk_aging_sim::bufferAges= 90.2402912355105"
+[80] "netwk_aging_sim::bufferAges= 98.5584338195622"
+[1] "netwk_aging_sim::count= 80   j= 81"
+1.0 0.0035
+[1] "/oasis/scratch/hongqin/temp_project/mactower-network-failure-simulation/1.grid.network.2015Oct"
+ [1] "Degree4N1000_EssenLookupTb.csv"                                     
+ [2] "Degree4N1000_network.csv"                                           
+ [3] "net1.dt.0.p.0.85.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_235311.csv"
+ [4] "net1.dt.0.p.0.85.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004754.csv"
+ [5] "net1.dt.0.p.0.9.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234654.csv" 
+ [6] "net1.dt.0.p.0.9.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004119.csv" 
+ [7] "net1.dt.0.p.0.95.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234544.csv"
+ [8] "net1.dt.0.p.0.95.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004001.csv"
+ [9] "net1.dt.0.p.1.L1.0.003.L2.3e-04.n.49.time.2016Jan02_155205.csv"     
+[10] "net1.dt.0.p.1.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234541.csv"   
+[11] "net1.dt.0.p.1.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_003943.csv"   
+  No1  No2
+1   1 1001
+2   1 1002
+3   1 1003
+4   1 1004
+5   2 1005
+6   2 1006
+      Var1           Freq    
+ 1      :   1   Min.   :1.0  
+ 2      :   1   1st Qu.:1.0  
+ 3      :   1   Median :1.0  
+ 4      :   1   Mean   :1.6  
+ 5      :   1   3rd Qu.:1.0  
+ 6      :   1   Max.   :4.0  
+ (Other):4994                
+   Var1 Freq
+1     1    4
+2     2    4
+3     3    4
+4     4    4
+5     5    4
+6     6    4
+7     7    4
+8     8    4
+9     9    4
+10   10    4
+      Var1           Freq    
+ 1      :   1   Min.   :1.0  
+ 2      :   1   1st Qu.:1.0  
+ 3      :   1   Median :1.0  
+ 4      :   1   Mean   :1.6  
+ 5      :   1   3rd Qu.:1.0  
+ 6      :   1   Max.   :4.0  
+ (Other):4994                
+ [1] "netwk_aging_sim::bufferAges= 46.3387690750616"
+ [2] "netwk_aging_sim::bufferAges= 43.9143341832927"
+ [3] "netwk_aging_sim::bufferAges= 43.1123596876526"
+ [4] "netwk_aging_sim::bufferAges= 57.9635350947176"
+ [5] "netwk_aging_sim::bufferAges= 49.6856681083509"
+ [6] "netwk_aging_sim::bufferAges= 51.0360885943685"
+ [7] "netwk_aging_sim::bufferAges= 56.2584362924099"
+ [8] "netwk_aging_sim::bufferAges= 56.9928754121065"
+ [9] "netwk_aging_sim::bufferAges= 51.1057165318302"
+[10] "netwk_aging_sim::bufferAges= 63.7004009852501"
+[11] "netwk_aging_sim::bufferAges= 30.2167838306932"
+[12] "netwk_aging_sim::bufferAges= 27.4161518152271"
+[13] "netwk_aging_sim::bufferAges= 40.2029942987221"
+[14] "netwk_aging_sim::bufferAges= 68.6577252511467"
+[15] "netwk_aging_sim::bufferAges= 54.8498617219073"
+[16] "netwk_aging_sim::bufferAges= 32.740790796067" 
+[17] "netwk_aging_sim::bufferAges= 36.7876970079116"
+[18] "netwk_aging_sim::bufferAges= 55.043179142688" 
+[19] "netwk_aging_sim::bufferAges= 58.9227854673352"
+[20] "netwk_aging_sim::bufferAges= 41.5412949930344"
+[21] "netwk_aging_sim::bufferAges= 56.0911476384543"
+[22] "netwk_aging_sim::bufferAges= 62.5053973858047"
+[23] "netwk_aging_sim::bufferAges= 60.7148889297049"
+[24] "netwk_aging_sim::bufferAges= 45.6543500790796"
+[25] "netwk_aging_sim::bufferAges= 76.4772755269318"
+[26] "netwk_aging_sim::bufferAges= 23.5803226157289"
+[27] "netwk_aging_sim::bufferAges= 52.8560564188021"
+[28] "netwk_aging_sim::bufferAges= 32.0076045915728"
+[29] "netwk_aging_sim::bufferAges= 14.7813808911873"
+[30] "netwk_aging_sim::bufferAges= 64.2319122063262"
+[31] "netwk_aging_sim::bufferAges= 41.3096033325115"
+[32] "netwk_aging_sim::bufferAges= 55.8043832757643"
+[33] "netwk_aging_sim::bufferAges= 54.731954554362" 
+[34] "netwk_aging_sim::bufferAges= 25.9028895358954"
+[35] "netwk_aging_sim::bufferAges= 46.9155127694144"
+[36] "netwk_aging_sim::bufferAges= 50.2669583739979"
+[37] "netwk_aging_sim::bufferAges= 62.8790953861816"
+[38] "netwk_aging_sim::bufferAges= 42.82797912934"  
+[39] "netwk_aging_sim::bufferAges= 54.379124726568" 
+[40] "netwk_aging_sim::bufferAges= 66.8830985345764"
+[41] "netwk_aging_sim::bufferAges= 25.4469432735017"
+[42] "netwk_aging_sim::bufferAges= 69.6930800165449"
+[43] "netwk_aging_sim::bufferAges= 57.288418124829" 
+[44] "netwk_aging_sim::bufferAges= 27.1997231825007"
+[45] "netwk_aging_sim::bufferAges= 46.8907040942993"
+[46] "netwk_aging_sim::bufferAges= 56.5211288630962"
+[47] "netwk_aging_sim::bufferAges= 68.8052223995328"
+[48] "netwk_aging_sim::bufferAges= 38.56609216226"  
+[49] "netwk_aging_sim::bufferAges= 87.6744370907545"
+[50] "netwk_aging_sim::bufferAges= 43.4090805106929"
+[51] "netwk_aging_sim::bufferAges= 36.4418201790479"
+[52] "netwk_aging_sim::bufferAges= 32.5163505994236"
+[53] "netwk_aging_sim::bufferAges= 56.839502283505" 
+[54] "netwk_aging_sim::bufferAges= 49.7603880773698"
+[55] "netwk_aging_sim::bufferAges= 43.6165173138891"
+[56] "netwk_aging_sim::bufferAges= 39.6353461380516"
+[57] "netwk_aging_sim::bufferAges= 59.9296461524708"
+[58] "netwk_aging_sim::bufferAges= 32.1945227416498"
+[59] "netwk_aging_sim::bufferAges= 56.6548594672765"
+[60] "netwk_aging_sim::bufferAges= 70.4771599599293"
+[61] "netwk_aging_sim::bufferAges= 45.7464350121362"
+[62] "netwk_aging_sim::bufferAges= 51.648316239672" 
+[63] "netwk_aging_sim::bufferAges= 43.0086423619257"
+[64] "netwk_aging_sim::bufferAges= 25.8489418774843"
+[65] "netwk_aging_sim::bufferAges= 25.8498630885567"
+[66] "netwk_aging_sim::bufferAges= 37.6265557156145"
+[67] "netwk_aging_sim::bufferAges= 30.1583982377063"
+[68] "netwk_aging_sim::bufferAges= 80.0378809032918"
+[69] "netwk_aging_sim::bufferAges= 36.6639089011541"
+[70] "netwk_aging_sim::bufferAges= 72.1194864937917"
+[71] "netwk_aging_sim::bufferAges= 48.3982989754592"
+[72] "netwk_aging_sim::bufferAges= 66.6981926187873"
+[73] "netwk_aging_sim::bufferAges= 42.8484815305897"
+[74] "netwk_aging_sim::bufferAges= 70.1862395830713"
+[75] "netwk_aging_sim::bufferAges= 43.1373502949175"
+[76] "netwk_aging_sim::bufferAges= 43.664858410401" 
+[77] "netwk_aging_sim::bufferAges= 38.5031157843966"
+[78] "netwk_aging_sim::bufferAges= 53.6977026079382"
+[79] "netwk_aging_sim::bufferAges= 37.5799951808793"
+[80] "netwk_aging_sim::bufferAges= 50.8152922491549"
+[1] "netwk_aging_sim::count= 80   j= 81"
+0.98 0.003
+[1] "/oasis/scratch/hongqin/temp_project/mactower-network-failure-simulation/1.grid.network.2015Oct"
+ [1] "Degree4N1000_EssenLookupTb.csv"                                     
+ [2] "Degree4N1000_network.csv"                                           
+ [3] "net1.dt.0.p.0.85.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_235311.csv"
+ [4] "net1.dt.0.p.0.85.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004754.csv"
+ [5] "net1.dt.0.p.0.9.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234654.csv" 
+ [6] "net1.dt.0.p.0.9.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004119.csv" 
+ [7] "net1.dt.0.p.0.95.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234544.csv"
+ [8] "net1.dt.0.p.0.95.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004001.csv"
+ [9] "net1.dt.0.p.1.L1.0.003.L2.3e-04.n.49.time.2016Jan02_155205.csv"     
+[10] "net1.dt.0.p.1.L1.0.0035.L2.0.00035.n.49.time.2016Jan02_155209.csv"  
+[11] "net1.dt.0.p.1.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234541.csv"   
+[12] "net1.dt.0.p.1.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_003943.csv"   
+  No1  No2
+1   1 1001
+2   1 1002
+3   1 1003
+4   1 1004
+5   2 1005
+6   2 1006
+      Var1           Freq    
+ 1      :   1   Min.   :1.0  
+ 2      :   1   1st Qu.:1.0  
+ 3      :   1   Median :1.0  
+ 4      :   1   Mean   :1.6  
+ 5      :   1   3rd Qu.:1.0  
+ 6      :   1   Max.   :4.0  
+ (Other):4994                
+   Var1 Freq
+1     1    4
+2     2    4
+3     3    4
+4     4    4
+5     5    4
+6     6    4
+7     7    4
+8     8    4
+9     9    4
+10   10    4
+      Var1           Freq    
+ 1      :   1   Min.   :1.0  
+ 2      :   1   1st Qu.:1.0  
+ 3      :   1   Median :1.0  
+ 4      :   1   Mean   :1.6  
+ 5      :   1   3rd Qu.:1.0  
+ 6      :   1   Max.   :4.0  
+ (Other):4994                
+ [1] "netwk_aging_sim::bufferAges= 48.8865290147563"
+ [2] "netwk_aging_sim::bufferAges= 59.1999152119032"
+ [3] "netwk_aging_sim::bufferAges= 79.7400510712109"
+ [4] "netwk_aging_sim::bufferAges= 57.1940788067877"
+ [5] "netwk_aging_sim::bufferAges= 33.5543334173659"
+ [6] "netwk_aging_sim::bufferAges= 46.3407457185288"
+ [7] "netwk_aging_sim::bufferAges= 39.7606388044854"
+ [8] "netwk_aging_sim::bufferAges= 58.1138094871898"
+ [9] "netwk_aging_sim::bufferAges= 44.6783057369319"
+[10] "netwk_aging_sim::bufferAges= 42.359807373335" 
+[11] "netwk_aging_sim::bufferAges= 32.2671122417411"
+[12] "netwk_aging_sim::bufferAges= 62.2544754196295"
+[13] "netwk_aging_sim::bufferAges= 32.0196185655885"
+[14] "netwk_aging_sim::bufferAges= 65.762784332037" 
+[15] "netwk_aging_sim::bufferAges= 27.2992892170392"
+[16] "netwk_aging_sim::bufferAges= 70.3692934475839"
+[17] "netwk_aging_sim::bufferAges= 33.3160491039356"
+[18] "netwk_aging_sim::bufferAges= 49.0116310926775"
+[19] "netwk_aging_sim::bufferAges= 97.5270506189597"
+[20] "netwk_aging_sim::bufferAges= 47.4317476058028"
+[21] "netwk_aging_sim::bufferAges= 55.8583706276298"
+[22] "netwk_aging_sim::bufferAges= 66.0470753597716"
+[23] "netwk_aging_sim::bufferAges= 44.3036407232285"
+[24] "netwk_aging_sim::bufferAges= 56.3587615027793"
+[25] "netwk_aging_sim::bufferAges= 51.036172075563" 
+[26] "netwk_aging_sim::bufferAges= 36.9285515819987"
+[27] "netwk_aging_sim::bufferAges= 20.5664481633327"
+[28] "netwk_aging_sim::bufferAges= 50.8136997775877"
+[29] "netwk_aging_sim::bufferAges= 69.6498403946559"
+[30] "netwk_aging_sim::bufferAges= 62.3667587836583"
+[31] "netwk_aging_sim::bufferAges= 53.6047018486671"
+[32] "netwk_aging_sim::bufferAges= 48.2141535418729"
+[33] "netwk_aging_sim::bufferAges= 49.0944314127167"
+[34] "netwk_aging_sim::bufferAges= 44.6788555787075"
+[35] "netwk_aging_sim::bufferAges= 45.7291570492089"
+[36] "netwk_aging_sim::bufferAges= 31.0784752170245"
+[37] "netwk_aging_sim::bufferAges= 43.6638789251447"
+[38] "netwk_aging_sim::bufferAges= 77.5517683292865"
+[39] "netwk_aging_sim::bufferAges= 75.6067264204224"
+[40] "netwk_aging_sim::bufferAges= 14.6034802310169"
+[41] "netwk_aging_sim::bufferAges= 29.6501351733314"
+[42] "netwk_aging_sim::bufferAges= 62.849402714558" 
+[43] "netwk_aging_sim::bufferAges= 72.4150087456789"
+[44] "netwk_aging_sim::bufferAges= 78.0951261209945"
+[45] "netwk_aging_sim::bufferAges= 36.7708023016651"
+[46] "netwk_aging_sim::bufferAges= 76.1603175688868"
+[47] "netwk_aging_sim::bufferAges= 60.5699347311551"
+[48] "netwk_aging_sim::bufferAges= 16.3643933999298"
+[49] "netwk_aging_sim::bufferAges= 38.4454933008152"
+[50] "netwk_aging_sim::bufferAges= 83.7780378448466"
+[51] "netwk_aging_sim::bufferAges= 40.9363792932995"
+[52] "netwk_aging_sim::bufferAges= 59.9326130268485"
+[53] "netwk_aging_sim::bufferAges= 74.9580946861039"
+[54] "netwk_aging_sim::bufferAges= 52.2143533453345"
+[55] "netwk_aging_sim::bufferAges= 36.8331113519768"
+[56] "netwk_aging_sim::bufferAges= 73.0711552549853"
+[57] "netwk_aging_sim::bufferAges= 26.4207833798905"
+[58] "netwk_aging_sim::bufferAges= 59.5528702251613"
+[59] "netwk_aging_sim::bufferAges= 70.3087684647837"
+[60] "netwk_aging_sim::bufferAges= 55.1985171623528"
+[61] "netwk_aging_sim::bufferAges= 59.3600076002379"
+[62] "netwk_aging_sim::bufferAges= 60.9680819325149"
+[63] "netwk_aging_sim::bufferAges= 57.7556565628618"
+[64] "netwk_aging_sim::bufferAges= 27.5665636484822"
+[65] "netwk_aging_sim::bufferAges= 56.2602736366292"
+[66] "netwk_aging_sim::bufferAges= 35.0435702130198"
+[67] "netwk_aging_sim::bufferAges= 61.8712170350681"
+[68] "netwk_aging_sim::bufferAges= 47.1751517616212"
+[69] "netwk_aging_sim::bufferAges= 94.1779737671216"
+[70] "netwk_aging_sim::bufferAges= 69.1735106520355"
+[71] "netwk_aging_sim::bufferAges= 31.6909435205162"
+[72] "netwk_aging_sim::bufferAges= 57.5269758701324"
+[73] "netwk_aging_sim::bufferAges= 79.5437929530938"
+[74] "netwk_aging_sim::bufferAges= 39.6541068330407"
+[75] "netwk_aging_sim::bufferAges= 46.8723772836493"
+[76] "netwk_aging_sim::bufferAges= 42.8713060294588"
+[77] "netwk_aging_sim::bufferAges= 87.9113567061722"
+[78] "netwk_aging_sim::bufferAges= 66.2630146058897"
+[79] "netwk_aging_sim::bufferAges= 53.1370124469201"
+[80] "netwk_aging_sim::bufferAges= 10.5488144165165"
+[1] "netwk_aging_sim::count= 80   j= 81"
+0.98 0.0035
+[1] "/oasis/scratch/hongqin/temp_project/mactower-network-failure-simulation/1.grid.network.2015Oct"
+ [1] "Degree4N1000_EssenLookupTb.csv"                                     
+ [2] "Degree4N1000_network.csv"                                           
+ [3] "net1.dt.0.p.0.85.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_235311.csv"
+ [4] "net1.dt.0.p.0.85.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004754.csv"
+ [5] "net1.dt.0.p.0.9.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234654.csv" 
+ [6] "net1.dt.0.p.0.9.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004119.csv" 
+ [7] "net1.dt.0.p.0.95.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234544.csv"
+ [8] "net1.dt.0.p.0.95.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_004001.csv"
+ [9] "net1.dt.0.p.0.98.L1.0.003.L2.3e-04.n.49.time.2016Jan02_155213.csv"  
+[10] "net1.dt.0.p.1.L1.0.003.L2.3e-04.n.49.time.2016Jan02_155205.csv"     
+[11] "net1.dt.0.p.1.L1.0.0035.L2.0.00035.n.49.time.2016Jan02_155209.csv"  
+[12] "net1.dt.0.p.1.L1.0.006.L2.2e-04.n.2000.time.2015Dec30_234541.csv"   
+[13] "net1.dt.0.p.1.L1.0.006.L2.2e-04.n.2000.time.2015Dec31_003943.csv"   
+  No1  No2
+1   1 1001
+2   1 1002
+3   1 1003
+4   1 1004
+5   2 1005
+6   2 1006
+      Var1           Freq    
+ 1      :   1   Min.   :1.0  
+ 2      :   1   1st Qu.:1.0  
+ 3      :   1   Median :1.0  
+ 4      :   1   Mean   :1.6  
+ 5      :   1   3rd Qu.:1.0  
+ 6      :   1   Max.   :4.0  
+ (Other):4994                
+   Var1 Freq
+1     1    4
+2     2    4
+3     3    4
+4     4    4
+5     5    4
+6     6    4
+7     7    4
+8     8    4
+9     9    4
+10   10    4
+      Var1           Freq    
+ 1      :   1   Min.   :1.0  
+ 2      :   1   1st Qu.:1.0  
+ 3      :   1   Median :1.0  
+ 4      :   1   Mean   :1.6  
+ 5      :   1   3rd Qu.:1.0  
+ 6      :   1   Max.   :4.0  
+ (Other):4994                
+ [1] "netwk_aging_sim::bufferAges= 56.7449275404215"
+ [2] "netwk_aging_sim::bufferAges= 56.2894836754015"
+ [3] "netwk_aging_sim::bufferAges= 25.0163163621596"
+ [4] "netwk_aging_sim::bufferAges= 42.8901425163661"
+ [5] "netwk_aging_sim::bufferAges= 39.3486778650965"
+ [6] "netwk_aging_sim::bufferAges= 70.2270237838029"
+ [7] "netwk_aging_sim::bufferAges= 48.0614166174616"
+ [8] "netwk_aging_sim::bufferAges= 46.545848165485" 
+ [9] "netwk_aging_sim::bufferAges= 29.0974258844342"
+[10] "netwk_aging_sim::bufferAges= 31.59133198538"  
+[11] "netwk_aging_sim::bufferAges= 21.1777876285286"
+[12] "netwk_aging_sim::bufferAges= 95.3696994110942"
+[13] "netwk_aging_sim::bufferAges= 57.2503316364633"
+[14] "netwk_aging_sim::bufferAges= 37.4487671735031"
+[15] "netwk_aging_sim::bufferAges= 53.4916964492628"
+[16] "netwk_aging_sim::bufferAges= 54.0944485526"   
+[17] "netwk_aging_sim::bufferAges= 39.7095756073083"
+[18] "netwk_aging_sim::bufferAges= 69.9431997428822"
+[19] "netwk_aging_sim::bufferAges= 28.443454350772" 
+[20] "netwk_aging_sim::bufferAges= 40.8054324133056"
+[21] "netwk_aging_sim::bufferAges= 52.7439835880484"
+[22] "netwk_aging_sim::bufferAges= 31.1097940430045"
+[23] "netwk_aging_sim::bufferAges= 40.6763042026071"
+[24] "netwk_aging_sim::bufferAges= 50.525473829891" 
+[25] "netwk_aging_sim::bufferAges= 67.1972527301737"
+[26] "netwk_aging_sim::bufferAges= 25.2091880107214"
+[27] "netwk_aging_sim::bufferAges= 43.5293756075273"
+[28] "netwk_aging_sim::bufferAges= 54.2160272732894"
+[29] "netwk_aging_sim::bufferAges= 55.5925261522483"
+[30] "netwk_aging_sim::bufferAges= 60.6502016474094"
+[31] "netwk_aging_sim::bufferAges= 41.4667773459639"
+[32] "netwk_aging_sim::bufferAges= 48.8960541421315"
+[33] "netwk_aging_sim::bufferAges= 47.8340773177998"
+[34] "netwk_aging_sim::bufferAges= 75.1156443474522"
+[35] "netwk_aging_sim::bufferAges= 33.5113376274464"
+[36] "netwk_aging_sim::bufferAges= 56.8520583377379"
+[37] "netwk_aging_sim::bufferAges= 45.8509328642062"
+[38] "netwk_aging_sim::bufferAges= 28.9811405486294"
+[39] "netwk_aging_sim::bufferAges= 50.0921342255814"
+[40] "netwk_aging_sim::bufferAges= 37.7251607508888"
+[41] "netwk_aging_sim::bufferAges= 51.8262295533022"
+[42] "netwk_aging_sim::bufferAges= 60.4207576917751"
+[43] "netwk_aging_sim::bufferAges= 39.6777440660766"
+[44] "netwk_aging_sim::bufferAges= 61.392469354554" 
+[45] "netwk_aging_sim::bufferAges= 27.3326560854912"
+[46] "netwk_aging_sim::bufferAges= 60.9618183085158"
+[47] "netwk_aging_sim::bufferAges= 36.3778086273304"
+[48] "netwk_aging_sim::bufferAges= 21.6183967090079"
+[49] "netwk_aging_sim::bufferAges= 77.6955100840756"
+[50] "netwk_aging_sim::bufferAges= 40.2939798576491"
+[51] "netwk_aging_sim::bufferAges= 47.8558849011149"
+[52] "netwk_aging_sim::bufferAges= 42.806208736871" 
+[53] "netwk_aging_sim::bufferAges= 49.4742715465171"
+[54] "netwk_aging_sim::bufferAges= 29.7150267288089"
+[55] "netwk_aging_sim::bufferAges= 43.3307183640344"
+[56] "netwk_aging_sim::bufferAges= 61.0062052420625"
+[57] "netwk_aging_sim::bufferAges= 67.3947446471255"
+[58] "netwk_aging_sim::bufferAges= 48.7195723024862"
+[59] "netwk_aging_sim::bufferAges= 21.6550082833023"
+[60] "netwk_aging_sim::bufferAges= 18.6925949311221"
+[61] "netwk_aging_sim::bufferAges= 44.8339054627078"
+[62] "netwk_aging_sim::bufferAges= 31.4707595456117"
+[63] "netwk_aging_sim::bufferAges= 69.9472264595227"
+[64] "netwk_aging_sim::bufferAges= 10.0987503038985"
+[65] "netwk_aging_sim::bufferAges= 60.1990190713813"
+[66] "netwk_aging_sim::bufferAges= 22.1717643684575"
+[67] "netwk_aging_sim::bufferAges= 72.2973459799375"
+[68] "netwk_aging_sim::bufferAges= 41.3243261074488"
+[69] "netwk_aging_sim::bufferAges= 42.7205722578656"
+[70] "netwk_aging_sim::bufferAges= 63.4396283754281"
+[71] "netwk_aging_sim::bufferAges= 10.3281253416623"
+[72] "netwk_aging_sim::bufferAges= 35.9069368940279"
+[73] "netwk_aging_sim::bufferAges= 30.5933522592698"
+[74] "netwk_aging_sim::bufferAges= 52.0143978171824"
+[75] "netwk_aging_sim::bufferAges= 23.0641921183893"
+[76] "netwk_aging_sim::bufferAges= 36.5452475634704"
+[77] "netwk_aging_sim::bufferAges= 49.2540392942846"
+[78] "netwk_aging_sim::bufferAges= 22.7046467111504"
+[79] "netwk_aging_sim::bufferAges= 46.0933252636875"
+[80] "netwk_aging_sim::bufferAges= 27.4067740621311"
+[1] "netwk_aging_sim::count= 80   j= 81"

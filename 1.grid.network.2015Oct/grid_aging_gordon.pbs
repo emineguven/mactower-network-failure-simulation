@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=8
+#PBS -l walltime=12:30:00
+
+module load R
+
+echo hostname
+cd /oasis/scratch/hongqin/temp_project/mactower-network-failure-simulation/1.grid.network.2015Oct
+pwd
+
+Rscript netwk_aging_sim.v0.1b.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0002 -dt 0 -p 0.95 -n 50  -op net1 -od net1 -d 1 -iC 4 -h /oasis/scratch/hongqin/temp_project/mactower-network-failure-simulation/1.grid.network.2015Oct
+Rscript netwk_aging_sim.v0.1b.R -if1 net1/Degree4N1000_network.csv -if2 net1/Degree4N1000_EssenLookupTb.csv -l1 0.006 -l2 0.0002 -dt 0 -p 0.9 -n 50  -op net1 -od net1 -d 1 -iC 4 -h /oasis/scratch/hongqin/temp_project/mactower-network-failure-simulation/1.grid.network.2015Oct
+
+
+
+
+
+
+
+
+
