@@ -25,6 +25,9 @@ GetoptLong(c(
 # inputdir = 'net1'; inputprefix = 'net1'; i = 1
 myfiles = list.files(inputdir)
 myfiles = myfiles[ grep(inputprefix, myfiles) ]
+if( debug ){
+  print( paste( "myfiles = ", myfiles ) )
+}
 
 out = summarize_mean_from_files( myfiles, inputdir )
 #timestamp = format(Sys.time(), "%Y%b%d_%H%M%S")
@@ -35,6 +38,9 @@ pdf(outputplotFile)
 
 for( i in 1:length(myfiles)) {
   currentFile = paste( inputdir, '/', myfiles[i], sep='');
+    if( debug ){
+    print( paste( "currentFile = ", currentFile ) )
+  }
   tbLS = read.csv(currentFile)
   tb = calculate.mortality.rate(tbLS[,1])
   plot( tb$s ~ tb$t, main = currentFile)
