@@ -3,17 +3,17 @@
 #If X= F^-1(U), then X is a random variable with cumulative density function F_X(x)=F
 #and then compare its fitting with Gompertz and Weibull model
 
- rgompertz = function(R,G, n){
+ rgompertz = function(lambda,alpha, n){
   x.uniform = runif(n)
   #this inverse function is done based on F_X(x)=1-e^(-lambda.x) 
   #then for every number u generated with a uniform random number genrator,
   #x= F^-1(u) where F=F_X.F^-1(u)=-1/lambda.ln(1-u)
-  inverse.gomp.cumulative = function(R,G,y) {  (1/G)*log(1 - (G/R)*log(1-y)  ) }
-  x.gompertz = inverse.gomp.cumulative(0.001,0.2, x.uniform)
+  inverse.gomp.cumulative = function(lambda,alpha,y) {  (1/alpha)*log(1 - (alpha/lambda)*log(1-y)  ) }
+  x.gompertz = inverse.gomp.cumulative(0.01,0.2, x.uniform)
   return(x.gompertz)
 }
 
-random_values_gompertz<-rgompertz(0.001,0.2,100)
+random_values_gompertz<-rgompertz(0.01,0.2,100)
 
 plot(random_values_gompertz, type="o",col="red")
 hist(random_values_gompertz,freq="FALSE")
