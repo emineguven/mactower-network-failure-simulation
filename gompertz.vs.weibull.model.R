@@ -3,8 +3,6 @@
 #If X= F^-1(U), then X is a random variable with cumulative density function F_X(x)=F
 #and then compare its fitting with Gompertz and Weibull model
 
- 
-
  Weibull <- function(delta,beta,n)
  {
    U <- runif(n)
