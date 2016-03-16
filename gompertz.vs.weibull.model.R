@@ -75,22 +75,22 @@ summary(X)
 # there are also other function in there that might be useful for later.
 
 calculate.s = function( lifespan ){
-  my.data = sort( lifespan[!is.na(lifespan)] );
-  tmptb = table( my.data )
-  for( i in 2:length(tmptb)) {
-    tmptb[i] = tmptb[i-1] + tmptb[i]      	} 	 
-  tot = length(my.data)
-  tmptb = tmptb / tot; 
-  s = 1 - tmptb
+  myData = sort( lifespan[!is.na(lifespan)] );
+  tmpGC = table( myData )
+  for( i in 2:length(tmpGC)) {
+    tmpGC[i] = tmpGC[i-1] + tmpGC[i]      	} 	 
+  tot = length(myData)
+  tmpGC = tmpGC / tot; 
+  s = 1 - tmpGC
   #list( s=s, t=unique(my.data));
-  ret = data.frame( cbind(s, unique(my.data)));
+  ret = data.frame( cbind(s, unique(myData)));
   names(ret) = c("s", "t");
   ret;
 }
 
 
-tb = calculate.s(Y)
-plot(tb$s ~ tb$t)
+GC = calculate.s(Y)
+plot(GC$s ~ GC$t)
 
 require(flexsurv)
 require(flexsurv)
@@ -107,55 +107,55 @@ c(lifespanWeib$AIC, lifespanGomp$AIC, lifespanWeib$AIC - lifespanGomp$AIC )
 
 #HQin's calculate mortality rate function to calculate the rate of mortality over time
 calculate.mortality.rate = function( lifespan ){
-  tb = calculate.s(lifespan)
-  tb$ds=NA; tb$dt=NA
+  GC = calculate.s(lifespan)
+  GC$ds=NA; GC$dt=NA
   #first point
-  tb$dt[1] = tb$t[2]
-  tb$ds[1] = 1 - tb$s[1]
-  tb$mortality.rate[1] = tb$ds[1] / tb$dt[1]
+  GC$dt[1] = GC$t[2]
+  GC$ds[1] = 1 - GC$s[1]
+  GC$mortality.rate[1] = GC$ds[1] / GC$dt[1]
   
-  for( j in 2:length(tb[,1])) {
-    tb$ds[j] =  tb$s[j-1] - tb$s[j] 
-    tb$dt[j] = -tb$t[j-1] + tb$t[j]
-    tb$mortality.rate[j] = tb$ds[j] / ( tb$s[j] * tb$dt[j])
+  for( j in 2:length(GC[,1])) {
+    GC$ds[j] =  GC$s[j-1] - GC$s[j] 
+    GC$dt[j] = -GC$t[j-1] + GC$t[j]
+    GC$mortality.rate[j] = GC$ds[j] / ( GC$s[j] * GC$dt[j])
   }
-  return(tb)
+  return(GC)
 } #end of calculate.mortality.rate()
 
-tb = calculate.mortality.rate(lifespan)
+GC = calculate.mortality.rate(lifespan)
 
 
 
-tb = calculate.s(round( Y, digits=1))
-head(tb)
-tb$ds=NA; tb$dt=NA
-tb$dt[1] = tb$t[2] #20130321 correct a bug tb$s -> tb$t
-tb$ds[1] = 1 - tb$s[1]
-tb$mortality.rate[1] = tb$ds[1] / tb$dt[1]
+GC = calculate.s(round( Y, digits=1))
+head(GC)
+GC$ds=NA; GC$dt=NA
+GC$dt[1] = GC$t[2] #20130321 correct a bug GC$s -> GC$t
+GC$ds[1] = 1 - GC$s[1]
+GC$mortality.rate[1] = GC$ds[1] / GC$dt[1]
 
-for( j in 2:length(tb[,1])) {
-  tb$ds[j] =  tb$s[j-1] - tb$s[j] 
-  tb$dt[j] = -tb$t[j-1] + tb$t[j]
-  tb$mortality.rate[j] = tb$ds[j] / ( tb$s[j] * tb$dt[j])
+for( j in 2:length(GC[,1])) {
+  GC$ds[j] =  GC$s[j-1] - GC$s[j] 
+  GC$dt[j] = -GC$t[j-1] + GC$t[j]
+  GC$mortality.rate[j] = GC$ds[j] / ( GC$s[j] * GC$dt[j])
 }
-plot( tb$s ~ tb$t)
-plot( tb$mortality.rate ~ tb$t, typ='l', log='y' )
+plot( GC$s ~ GC$t)
+plot( GC$mortality.rate ~ GC$t, typ='l', log='y' )
 
 
 #then plot log(mortality rate) ~ time.
 #For Weibull model, log(moretality rate) ~ log(time) give the linear form.
 
-plot( log10(tb$mortality.rate) ~ tb$t, type='l') #linear for Gompertz, semi-log plot
-plot( log10(tb$mortality.rate) ~ log10(tb$t), type='l'  ) #linear for Weibull, log-log plot
+plot( log10(GC$mortality.rate) ~ GC$t, type='l') #linear for Gompertz, semi-log plot
+plot( log10(GC$mortality.rate) ~ log10(GC$t), type='l'  ) #linear for Weibull, log-log plot
 
 #the first point was very low because it is a bug.
 #and last point of mortality rate are very low, presumbaly due to boundary effect.
 
 
-tb2 = tb 
-tb2 = tb2[-length(tb2[,1]), ]
+GC2 = GC 
+GC2 = GC2[-length(GC2[,1]), ]
 
 
-summary(lm(log10(tb2$mortality.rate) ~ tb2$t ))
+summary(lm(log10(GC2$mortality.rate) ~ GC2$t ))
 
-summary(lm(log10(tb2$mortality.rate) ~ log10(tb2$t) ))
+summary(lm(log10(GC2$mortality.rate) ~ log10(GC2$t) ))
